@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Status epilepticus — ASM Formulary</title>
+<meta name="description" content="The timed convulsive status epilepticus algorithm with weight-based doses calculated, plus home rescue medication for seizure clusters.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Acute management</p>
+  <h1>Status epilepticus</h1>
+  <p>The single most common error in convulsive status epilepticus is under-dosing the benzodiazepine. Give an adequate single full dose rather than splitting it into several small ones.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>On this page</h4>
+      <nav>
+        <a href="#calc">Doses for this patient</a>
+        <a href="#algorithm">The timed algorithm</a>
+        <a href="#rescue">Home rescue medication</a>
+        <a href="#after">After the seizure stops</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Related</h4>
+      <nav>
+        <a href="calculators.html#ped">Paediatric dosing</a>
+        <a href="choose.html#syndromes">Neonatal seizures</a>
+        <a href="monographs.html#d-phenobarbital">Phenobarbital monograph</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="calc">
+      <h2>Doses for this patient</h2>
+      <p class="lede">Enter a weight. Every dose below is computed from the American Epilepsy Society algorithm with its maximums already applied.</p>
+      <div class="tool">
+        <div class="inputs" style="grid-template-columns:minmax(180px,240px)">
+          <div class="inp">
+            <label for="se-weight">Weight (kg)</label>
+            <input id="se-weight" type="number" min="1" max="250" step="0.5" value="70" inputmode="decimal">
+          </div>
+        </div>
+        <div class="out" id="se-out"></div>
+      </div>
+    </section>
+
+    <section id="algorithm">
+      <h2>The timed algorithm</h2>
+      <p class="lede">Four phases. At each decision point, if the patient is back at baseline, move to symptomatic medical care instead.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Phase</th><th>Timing</th><th>What to do</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="drug">Stabilisation</td>
+              <td class="num">0&ndash;5 min</td>
+              <td>Airway, breathing, circulation, neurological examination. Time the seizure from onset. Oxygen; consider intubation. ECG monitoring. Finger-stick glucose &mdash; if below 60 mg/dL give thiamine 100 mg IV then 50 mL of 50% dextrose in adults, 2 mL/kg of 25% dextrose in children 2 years and over, 4 mL/kg of 12.5% dextrose under 2 years. IV access, electrolytes, haematology, toxicology, and antiseizure drug levels where relevant.</td>
+            </tr>
+            <tr>
+              <td class="drug">Initial therapy<br><em>benzodiazepine</em></td>
+              <td class="num">5&ndash;20 min</td>
+              <td>A benzodiazepine is the initial therapy of choice (Level A). Choose one of three equivalent options at a full dose: intramuscular midazolam, intravenous lorazepam, or intravenous diazepam. If none is available, use intravenous phenobarbital 15 mg/kg (Level A), rectal diazepam (Level B), or intranasal or buccal midazolam (Level B).</td>
+            </tr>
+            <tr>
+              <td class="drug">Second therapy</td>
+              <td class="num">20&ndash;40 min</td>
+              <td>There is no evidence-based preferred agent (Level U). Choose one and give it as a single dose: fosphenytoin, valproic acid or levetiracetam intravenously. If none is available and it has not already been given, intravenous phenobarbital 15 mg/kg.</td>
+            </tr>
+            <tr>
+              <td class="drug">Third therapy</td>
+              <td class="num">40&ndash;60 min</td>
+              <td>No clear evidence guides this phase. Repeat second-line therapy, or move to anaesthetic doses of thiopental, midazolam, pentobarbital or propofol, all with continuous EEG monitoring.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tnote">Glauser T, Shinnar S, Gloss D, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults. <em>Epilepsy Curr</em> 2016;16(1):48&ndash;61. The ESETT trial subsequently found fosphenytoin, valproate and levetiracetam equivalent in benzodiazepine-refractory status, supporting the guideline's neutrality between them.</p>
+    </section>
+
+    <section id="rescue" data-linkify>
+      <h2>Home rescue medication</h2>
+      <p class="lede">For seizure clusters treated outside hospital. Every patient given rescue medication needs a written seizure action plan naming the drug, the dose, when to give it, and when to call emergency services.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Preparation</th><th>Dose</th><th>Repeat and limits</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="drug">Midazolam nasal spray</td>
+              <td>One 5 mg spray into one nostril, aged 12 and over</td>
+              <td>One further 5 mg spray into the other nostril after 10 minutes if there has been no response. Maximum 2 doses per episode, no more than one episode every 3 days and 5 episodes a month.</td>
+            </tr>
+            <tr>
+              <td class="drug">Diazepam nasal spray</td>
+              <td>0.5 mg/kg aged 2&ndash;5, 0.3 mg/kg aged 6&ndash;11, 0.2 mg/kg aged 12 and over, rounded to the 5, 10, 15 or 20 mg devices</td>
+              <td>Second dose after at least 4 hours if needed. Maximum 2 doses per episode, one episode every 5 days, 5 episodes a month.</td>
+            </tr>
+            <tr>
+              <td class="drug">Diazepam rectal gel</td>
+              <td>0.2&ndash;0.5 mg/kg, maximum 20 mg</td>
+              <td>A single dose within the acute algorithm; follow local product instructions for repeat dosing at home.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="call caution" style="margin-top:16px">
+        <h3>Before you prescribe a nasal benzodiazepine</h3>
+        <p style="margin-bottom:0">For patients at increased risk of respiratory depression, consider giving the first dose under supervision, outside a seizure, so the caregiver has seen it done and the response is known.</p>
+      </div>
+    </section>
+
+    <section id="after" data-linkify>
+      <h2>After the seizure stops</h2>
+      <ul class="plain">
+        <li>Establish or re-establish maintenance therapy before the loading dose wears off. A patient loaded with fosphenytoin or levetiracetam and then sent home without maintenance will seize again.</li>
+        <li>Look for the precipitant: missed doses, a new interacting drug, infection, sleep deprivation, alcohol, metabolic derangement, or a new structural lesion.</li>
+        <li>Check concentrations where the drug has a useful reference range, particularly phenytoin, whose kinetics are saturable.</li>
+        <li>In a patient not previously known to have epilepsy, the cause of the status is the diagnostic question, not the seizure itself.</li>
+        <li>Review whether home rescue medication and a written action plan are in place before discharge.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>initPage("emerg");</script>
+</body>
+</html>

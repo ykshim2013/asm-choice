@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blood levels — ASM Formulary</title>
+<meta name="description" content="Antiseizure medication reference ranges, half-lives and time to steady state, with an interpreter for a measured concentration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Therapeutic drug monitoring</p>
+  <h1>Blood levels</h1>
+  <p>A reference range is a population range, not a therapeutic target. Some patients do well below it and some need concentrations above it. Know the number when the clinical picture is ambiguous, then treat the patient.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>On this page</h4>
+      <nav>
+        <a href="#tool">Interpret a level</a>
+        <a href="#when">When a level helps</a>
+        <a href="#table">Ranges and kinetics</a>
+        <a href="#how">How to sample</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Related</h4>
+      <nav>
+        <a href="calculators.html#renal">Renal adjustment</a>
+        <a href="calculators.html#ix">Interaction checker</a>
+        <a href="monographs.html">Monographs</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="tool">
+      <h2>Interpret a level</h2>
+      <p class="lede">Places a measured concentration against the published range and reminds you what else governs its meaning.</p>
+      <div class="tool">
+        <div class="inputs">
+          <div class="inp">
+            <label for="lvl-drug">Drug</label>
+            <select id="lvl-drug"></select>
+          </div>
+          <div class="inp">
+            <label for="lvl-value">Measured concentration</label>
+            <input id="lvl-value" type="number" min="0" step="0.01" value="8" inputmode="decimal">
+          </div>
+          <div class="inp">
+            <label for="lvl-unit">Units</label>
+            <select id="lvl-unit">
+              <option value="mg">mg/L</option>
+              <option value="um">&micro;mol/L</option>
+            </select>
+          </div>
+        </div>
+        <div class="out" id="lvl-out"></div>
+      </div>
+    </section>
+
+    <section id="when">
+      <h2>When a level helps</h2>
+      <div class="call">
+        <h3>Situations where the result changes management</h3>
+        <ul class="plain">
+          <li>Establishing an individual's own effective concentration once seizure-free, as a baseline for later comparison.</li>
+          <li>Suspected non-adherence, which is the commonest cause of apparent drug resistance.</li>
+          <li>Suspected toxicity when symptoms are hard to separate from the epilepsy itself.</li>
+          <li>Phenytoin at any time, because saturable kinetics mean a small dose rise can produce a large concentration rise.</li>
+          <li>Pregnancy, where lamotrigine, levetiracetam and oxcarbazepine concentrations fall substantially.</li>
+          <li>Renal or hepatic disease, hypoalbuminaemia, the very young and the elderly, where protein binding or clearance shifts.</li>
+          <li>Adding or removing an enzyme inducer or inhibitor.</li>
+        </ul>
+      </div>
+      <div class="call caution">
+        <h3>Situations where it does not</h3>
+        <p style="margin-bottom:0">A well-controlled patient with no adverse effects does not need a routine level. Neither does a patient on vigabatrin, whose effect is disconnected from its concentration, nor one on a drug with no established range: cenobamate, fenfluramine, ganaxolone and cannabidiol all post-date the 2018 review. Everolimus is the exception among the newer agents, and is titrated to a whole-blood trough of 5 to 15 ng/mL.</p>
+      </div>
+    </section>
+
+    <section id="table">
+      <h2>Ranges and kinetics</h2>
+      <p class="lede">Adult monotherapy values. Time to steady state is the interval to wait before a level means anything after a dose change.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Drug</th><th>Reference range</th><th>&micro;mol/L</th><th>Half-life</th><th>Protein binding</th><th>Steady state</th><th>Also monitor</th></tr></thead>
+          <tbody id="pk-table"></tbody>
+        </table>
+      </div>
+      <p class="tnote">Patsalos PN, Spencer EP, Berry DJ. Therapeutic drug monitoring of antiepileptic drugs in epilepsy: a 2018 update. <em>Ther Drug Monit</em> 2018;40(5):526&ndash;548.</p>
+    </section>
+
+    <section id="how">
+      <h2>How to sample</h2>
+      <ul class="plain">
+        <li>Sample at steady state. The exceptions are overdose, suspected toxicity, and status epilepticus, where you sample immediately.</li>
+        <li>Take the sample immediately before the morning dose, and record the interval since the last dose so the result can be interpreted.</li>
+        <li>For drugs with a half-life under 12 hours, diurnal variation is large enough to change the interpretation. Timing matters most for levetiracetam, gabapentin, pregabalin, tiagabine, rufinamide and valproate.</li>
+        <li>Measure the free concentration rather than the total for phenytoin and valproate in hypoalbuminaemia, renal or hepatic disease, and pregnancy. Perampanel and stiripentol are also highly protein bound.</li>
+        <li>Monitor the active metabolite where one carries the effect: N-desmethylclobazam with clobazam, phenobarbital derived from primidone, the carbamazepine epoxide when an inhibitor is co-prescribed.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+initPage("levels");
+(function(){
+  const body = document.getElementById("pk-table");
+  if(!body) return;
+  body.innerHTML = PK.map(p => `<tr>
+    <td class="drug">${p.n}</td>
+    <td class="num">${p.mg ? p.mg[0]+" to "+p.mg[1]+" mg/L" : "not clinically useful"}</td>
+    <td class="num">${p.um ? p.um[0]+" to "+p.um[1] : "&mdash;"}</td>
+    <td class="num">${p.t12}</td>
+    <td class="num">${p.pb}</td>
+    <td class="num">${p.ss}</td>
+    <td>${p.meta === "-" ? "&mdash;" : p.meta}</td></tr>`).join("");
+})();
+</script>
+</body>
+</html>

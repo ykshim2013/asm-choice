@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dose calculators — ASM Formulary</title>
+<meta name="description" content="Weight-based paediatric antiseizure medication doses, lamotrigine titration schedules, renal dose adjustment and an interaction checker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Tools</p>
+  <h1>Dose calculators</h1>
+  <p>Each tool shows the rule it applied underneath the result, so you can check the arithmetic against the label rather than trusting a number.</p>
+  <p class="disclaimer">These calculators reproduce the dosing rules printed in United States labelling. They do not account for the individual patient, renal or hepatic function unless stated, or your local licensed indications. Round to available strengths and confirm before prescribing.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>On this page</h4>
+      <nav>
+        <a href="#ped">Paediatric dose</a>
+        <a href="#ltg">Lamotrigine titration</a>
+        <a href="#renal">Renal adjustment</a>
+        <a href="#ix">Interaction checker</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <nav>
+        <a href="emergency.html#calc">Status epilepticus doses</a>
+        <a href="levels.html#tool">Blood level interpreter</a>
+        <a href="choose.html#tool">Drug chooser</a>
+        <a href="monographs.html">Monographs</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="ped">
+      <h2>Paediatric weight-based dose</h2>
+      <p class="lede">Twenty agents whose labels give weight-based paediatric dosing. Enter a weight and, where it changes the band, an age.</p>
+      <div class="tool">
+        <div class="inputs">
+          <div class="inp">
+            <label for="ped-drug">Drug</label>
+            <select id="ped-drug"></select>
+          </div>
+          <div class="inp">
+            <label for="ped-weight">Weight (kg)</label>
+            <input id="ped-weight" type="number" min="0.5" max="200" step="0.1" value="20" inputmode="decimal">
+          </div>
+          <div class="inp">
+            <label for="ped-age">Age (years)</label>
+            <input id="ped-age" type="number" min="0" max="25" step="0.5" value="5" inputmode="decimal">
+            <span class="hint">Changes the band for levetiracetam, oxcarbazepine, gabapentin, ethosuximide, carbamazepine and stiripentol.</span>
+          </div>
+        </div>
+        <div class="out" id="ped-out"></div>
+      </div>
+    </section>
+
+    <section id="ltg">
+      <h2>Lamotrigine titration</h2>
+      <p class="lede">The schedule changes completely with co-medication, and exceeding it is the main modifiable risk factor for serious rash. Pick the situation in front of you.</p>
+      <div class="tool">
+        <div class="inputs">
+          <div class="inp">
+            <label for="ltg-age">Age group</label>
+            <select id="ltg-age">
+              <option value="adult">Older than 12 years</option>
+              <option value="ped">2 to 12 years</option>
+            </select>
+          </div>
+          <div class="inp">
+            <label for="ltg-comed">Co-medication</label>
+            <select id="ltg-comed">
+              <option value="none">Neither valproate nor an inducer</option>
+              <option value="vpa">Taking valproate</option>
+              <option value="ind">Taking carbamazepine, phenytoin, phenobarbital or primidone</option>
+            </select>
+          </div>
+          <div class="inp" id="ltg-weight-wrap" style="display:none">
+            <label for="ltg-weight">Weight (kg)</label>
+            <input id="ltg-weight" type="number" min="5" max="80" step="0.5" value="20" inputmode="decimal">
+          </div>
+        </div>
+        <div class="out" id="ltg-out"></div>
+      </div>
+      <div class="call caution" style="margin-top:16px">
+        <h3>Two situations that catch people out</h3>
+        <p>Starting or stopping an estrogen-containing contraceptive changes lamotrigine clearance roughly two-fold in either direction. Increase the maintenance dose when one is started, and reduce it by up to half when it is stopped.</p>
+        <p style="margin-bottom:0">If lamotrigine has been off for more than five half-lives, restart from the beginning of the schedule rather than the previous maintenance dose.</p>
+      </div>
+    </section>
+
+    <section id="renal">
+      <h2>Renal dose adjustment</h2>
+      <p class="lede">Estimate creatinine clearance, or enter a known value, and see which agents need adjusting.</p>
+      <div class="tool">
+        <div class="inputs">
+          <div class="inp">
+            <label for="crcl-mode">Method</label>
+            <select id="crcl-mode">
+              <option value="cg">Cockcroft-Gault (adult)</option>
+              <option value="schwartz">Schwartz (child under 12)</option>
+              <option value="direct">Enter CrCl directly</option>
+            </select>
+          </div>
+          <div class="inp" id="f-adult">
+            <label for="crcl-age">Age (years)</label>
+            <input id="crcl-age" type="number" min="0" max="110" step="1" value="60" inputmode="numeric">
+          </div>
+          <div class="inp" id="f-direct" style="display:none">
+            <label for="crcl-direct">CrCl (mL/min)</label>
+            <input id="crcl-direct" type="number" min="1" max="200" step="1" value="45" inputmode="numeric">
+          </div>
+          <div class="inp">
+            <label for="crcl-weight">Weight (kg)</label>
+            <input id="crcl-weight" type="number" min="1" max="200" step="0.5" value="70" inputmode="decimal">
+          </div>
+          <div class="inp" id="f-child" style="display:none">
+            <label for="crcl-height">Height (cm)</label>
+            <input id="crcl-height" type="number" min="40" max="200" step="1" value="110" inputmode="numeric">
+          </div>
+          <div class="inp">
+            <label for="crcl-scr">Serum creatinine (mg/dL)</label>
+            <input id="crcl-scr" type="number" min="0.1" max="15" step="0.1" value="1.2" inputmode="decimal">
+            <span class="hint">Divide a &micro;mol/L result by 88.4.</span>
+          </div>
+          <div class="inp">
+            <label for="crcl-sex">Sex</label>
+            <select id="crcl-sex"><option value="m">Male</option><option value="f">Female</option></select>
+          </div>
+        </div>
+        <div>
+          <span class="hint">Estimated creatinine clearance</span>
+          <div class="dose" style="font-size:1.3rem" id="crcl-value">&mdash;</div>
+        </div>
+        <div class="out" id="renal-out"></div>
+      </div>
+    </section>
+
+    <section id="ix">
+      <h2>Interaction checker</h2>
+      <p class="lede">Select the whole regimen. The tool reports recorded pairwise interactions and tells you whether the combination shares a mechanism, which is the usual reason a combination adds side effects without adding control.</p>
+      <div class="tool">
+        <div class="tool-head">
+          <h3>Select the regimen</h3>
+          <button class="btn ghost" id="ix-clear" type="button">Clear all</button>
+        </div>
+        <div class="togs" id="ix-picks"></div>
+        <div class="out" id="ix-out"></div>
+      </div>
+      <p class="tnote">Interaction data from the drugs' own labelling and from Patsalos PN, Spencer EP, Berry DJ, <em>Ther Drug Monit</em> 2018. This list covers antiseizure medications only; it does not include interactions with drugs used for other conditions, which are extensive for the enzyme inducers.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>initPage("calc");</script>
+</body>
+</html>

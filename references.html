@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>References and method — ASM Formulary</title>
+<meta name="description" content="Every source behind this antiseizure medication formulary, how the dosing data was obtained, and what its limits are.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Provenance</p>
+  <h1>References and method</h1>
+  <p>What this formulary is built from, how the numbers were obtained, and where it stops.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>On this page</h4>
+      <nav>
+        <a href="#method">How it was built</a>
+        <a href="#limits">Limits</a>
+        <a href="#refs">Reference list</a>
+        <a href="#labels">Prescribing information</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="method">
+      <h2>How it was built</h2>
+      <p>Dosing was not written from memory. Structured Product Labels for every agent were retrieved from DailyMed, the National Library of Medicine's repository of current United States prescribing information, and the dosage and administration sections were transcribed. Where a drug has several labelled products, the innovator label was used: Keppra for levetiracetam, Lamictal and Lamictal XR for lamotrigine, Tegretol for carbamazepine, and so on.</p>
+      <p>Pharmacokinetic parameters and reference ranges come from the 2018 therapeutic drug monitoring review by Patsalos and colleagues, which is the source most laboratories' ranges derive from. Mechanisms follow the Sills and Rogawski review. Drug selection ordering follows NICE guideline NG217 as updated in January 2025. Status epilepticus doses are the American Epilepsy Society algorithm. Malformation rates are the EURAP registry figures.</p>
+      <p>The calculators implement the arithmetic printed in those labels and guidelines, nothing more. Each one displays the rule it applied beneath the result so you can check it.</p>
+    </section>
+
+    <section id="limits">
+      <h2>Limits</h2>
+      <div class="call caution">
+        <ul class="plain">
+          <li><strong>Country.</strong> Doses reflect United States labelling and United Kingdom guidance. Licensed indications, available formulations and approved doses differ elsewhere. Check your national formulary.</li>
+          <li><strong>Sulthiame</strong> has no FDA label, so no dose is given for it. Its reference range is quoted from Patsalos 2018 and its place in therapy from NICE.</li>
+          <li><strong>Cenobamate, fenfluramine, ganaxolone and cannabidiol</strong> post-date the 2018 monitoring review and have no established reference range.</li>
+          <li><strong>Prednisolone regimens for infantile spasms</strong> vary by region and are not given as a dose here.</li>
+          <li><strong>The interaction checker covers antiseizure medications only.</strong> It does not include interactions with drugs used for other conditions, which are extensive for the enzyme inducers. Absence from the list is not evidence of safety.</li>
+          <li><strong>The chooser annotates, it does not decide.</strong> Flags are drawn from labelling and registry data and attach to the guideline ordering. They do not re-rank it.</li>
+          <li><strong>Currency.</strong> Compiled 11 September 2026. Labels change. Treat anything here older than your last label check as provisional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="refs">
+      <h2>Reference list</h2>
+      <ol class="refs">
+        <li>Sills GJ, Rogawski MA. Mechanisms of action of currently used antiseizure drugs. <em>Neuropharmacology</em> 2020;168:107966. <a href="https://doi.org/10.1016/j.neuropharm.2020.107966">doi:10.1016/j.neuropharm.2020.107966</a></li>
+        <li>National Institute for Health and Care Excellence. <em>Epilepsies in children, young people and adults</em>. NICE guideline NG217, updated January 2025. <a href="https://www.nice.org.uk/guidance/ng217">nice.org.uk/guidance/ng217</a></li>
+        <li>Patsalos PN, Spencer EP, Berry DJ. Therapeutic drug monitoring of antiepileptic drugs in epilepsy: a 2018 update. <em>Ther Drug Monit</em> 2018;40(5):526&ndash;548. <a href="https://pubmed.ncbi.nlm.nih.gov/29957667/">PMID 29957667</a></li>
+        <li>Glauser T, Shinnar S, Gloss D, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults. Report of the Guideline Committee of the American Epilepsy Society. <em>Epilepsy Curr</em> 2016;16(1):48&ndash;61. <a href="https://doi.org/10.5698/1535-7597-16.1.48">doi:10.5698/1535-7597-16.1.48</a></li>
+        <li>Kwan P, Arzimanoglou A, Berg AT, et al. Definition of drug resistant epilepsy: consensus proposal by the ad hoc Task Force of the ILAE Commission on Therapeutic Strategies. <em>Epilepsia</em> 2010;51(6):1069&ndash;1077. <a href="https://doi.org/10.1111/j.1528-1167.2009.02397.x">doi:10.1111/j.1528-1167.2009.02397.x</a></li>
+        <li>Chen Z, Brodie MJ, Liew D, Kwan P. Treatment outcomes in patients with newly diagnosed epilepsy treated with established and new antiepileptic drugs: a 30-year longitudinal cohort study. <em>JAMA Neurol</em> 2018;75(3):279&ndash;286. <a href="https://pubmed.ncbi.nlm.nih.gov/29279892/">PMID 29279892</a></li>
+        <li>Tomson T, Battino D, Bonizzoni E, et al. Comparative risk of major congenital malformations with eight different antiepileptic drugs: a prospective cohort study of the EURAP registry. <em>Lancet Neurol</em> 2018;17(6):530&ndash;538. <a href="https://pubmed.ncbi.nlm.nih.gov/29680205/">PMID 29680205</a></li>
+        <li>Tomson T, Battino D, Bonizzoni E, et al. Dose-dependent risk of malformations with antiepileptic drugs: an analysis of data from the EURAP epilepsy and pregnancy registry. <em>Lancet Neurol</em> 2011;10(7):609&ndash;617. <a href="https://pubmed.ncbi.nlm.nih.gov/21652013/">PMID 21652013</a></li>
+        <li>Glauser TA, Cnaan A, Shinnar S, et al. Ethosuximide, valproic acid, and lamotrigine in childhood absence epilepsy. <em>N Engl J Med</em> 2010;362(9):790&ndash;799. <a href="https://doi.org/10.1056/NEJMoa0902014">doi:10.1056/NEJMoa0902014</a></li>
+        <li>Marson A, Burnside G, Appleton R, et al. The SANAD II study of the effectiveness and cost-effectiveness of levetiracetam, zonisamide, or lamotrigine for newly diagnosed focal epilepsy. <em>Lancet</em> 2021;397(10282):1363&ndash;1374. <a href="https://pubmed.ncbi.nlm.nih.gov/33838757/">PMID 33838757</a></li>
+        <li>Marson A, Burnside G, Appleton R, et al. The SANAD II study of the effectiveness and cost-effectiveness of valproate versus levetiracetam for newly diagnosed generalised and unclassifiable epilepsy. <em>Lancet</em> 2021;397(10282):1375&ndash;1386.</li>
+        <li>O'Callaghan FJK, Edwards SW, Alber FD, et al. Safety and effectiveness of hormonal treatment versus hormonal treatment with vigabatrin for infantile spasms (ICISS): a randomised, multicentre, open-label trial. <em>Lancet Neurol</em> 2017;16(1):33&ndash;42.</li>
+        <li>Pressler RM, Abend NS, Auvin S, et al. Treatment of seizures in the neonate: guidelines and consensus-based recommendations. Special report from the ILAE Task Force on Neonatal Seizures. <em>Epilepsia</em> 2023;64(10):2550&ndash;2570. <a href="https://doi.org/10.1111/epi.17745">doi:10.1111/epi.17745</a></li>
+        <li>Medicines and Healthcare products Regulatory Agency. Valproate: organisation-wide risk minimisation measures and new prescribing requirements from 31 January 2024. <a href="https://www.gov.uk/drug-safety-update">MHRA Drug Safety Update</a></li>
+      </ol>
+    </section>
+
+    <section id="labels">
+      <h2>Prescribing information</h2>
+      <p>United States prescribing information accessed through <a href="https://dailymed.nlm.nih.gov/">DailyMed</a> for: Keppra, Briviact, Lamictal and Lamictal XR, Depakote and Depakote ER, Topamax, Zonegran, Fycompa, Vimpat, Tegretol, Trileptal, Aptiom, Dilantin, Cerebyx, Mysoline, Zarontin, Neurontin, Lyrica and Lyrica CR, Sabril, Banzel, Xcopri, Onfi, Klonopin, Felbatol, Gabitril, Epidiolex, Diacomit, Fintepla, Ztalmy, Afinitor and Afinitor Disperz, Sezaby, Valtoco, Nayzilam, and generic phenobarbital and acetazolamide.</p>
+      <p>The site itself is a static page set with no build step and no tracking. Source is on <a href="https://github.com/ykshim2013/asm-choice">GitHub</a>.</p>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>initPage("refs");</script>
+</body>
+</html>

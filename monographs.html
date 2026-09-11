@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drug monographs — ASM Formulary</title>
+<meta name="description" content="Thirty-one antiseizure medication monographs: target, indications, adult and paediatric dosing, kinetics, organ adjustment, adverse effects, interactions and pregnancy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Reference</p>
+  <h1>Drug monographs</h1>
+  <p>Thirty-one agents. Doses are from current United States prescribing information; half-life, protein binding and reference ranges are from the ILAE-linked monitoring review. Filter by name, brand, target or indication.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>Drug index</h4>
+      <div class="dindex" id="dindex"></div>
+    </div>
+    <div>
+      <h4>Related</h4>
+      <nav>
+        <a href="calculators.html">Dose calculators</a>
+        <a href="levels.html">Blood levels</a>
+        <a href="mechanisms.html">Mechanisms</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <section id="all">
+      <div class="jump" id="djump"></div>
+
+      <div class="controls">
+        <input id="q" type="search" placeholder="Search drug, brand, target, indication&hellip;" aria-label="Search monographs">
+        <div class="chips" id="chips" role="group" aria-label="Filter by mechanism class">
+          <button class="chip" data-c="all" aria-pressed="true">All</button>
+          <button class="chip" data-c="na" aria-pressed="false">Na channel</button>
+          <button class="chip" data-c="ca" aria-pressed="false">Ca channel</button>
+          <button class="chip" data-c="gaba" aria-pressed="false">GABA</button>
+          <button class="chip" data-c="glu" aria-pressed="false">Glutamate</button>
+          <button class="chip" data-c="sv2a" aria-pressed="false">SV2A</button>
+          <button class="chip" data-c="multi" aria-pressed="false">Multiple</button>
+        </div>
+        <span class="count" id="count"></span>
+      </div>
+
+      <div class="monos" id="monos"></div>
+    </section>
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>initPage("mono");</script>
+</body>
+</html>

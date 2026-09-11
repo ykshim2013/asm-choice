@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Choose a drug — ASM Formulary</title>
+<meta name="description" content="Select an antiseizure medication by seizure type and syndrome, with flags for the patient's circumstances and the agents that worsen seizures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%A7%A0</text></svg>">
+</head>
+<body>
+
+<div class="hero" id="top">
+  <p class="eyebrow">Selection</p>
+  <h1>Choose a drug</h1>
+  <p>Guideline ordering from NICE NG217, annotated with the flags that matter for the patient in front of you. The tool does not re-rank the guideline; it tells you what to weigh.</p>
+</div>
+
+<div class="page rails">
+  <aside class="rail">
+    <div>
+      <h4>On this page</h4>
+      <nav>
+        <a href="#tool">Interactive chooser</a>
+        <a href="#types">By seizure type</a>
+        <a href="#syndromes">By syndrome</a>
+        <a href="#aggravate">Drugs that worsen seizures</a>
+        <a href="#trials">What the trials showed</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Related</h4>
+      <nav>
+        <a href="monographs.html">All monographs</a>
+        <a href="calculators.html">Dose calculators</a>
+        <a href="safety.html#pregnancy">Pregnancy data</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="tool">
+      <h2>Interactive chooser</h2>
+      <p class="lede">Pick the seizure type, then tick anything true of this patient. Flags come from the drugs' own labelling and the EURAP registry.</p>
+      <div class="tool">
+        <div class="inputs" style="grid-template-columns:minmax(200px,320px)">
+          <div class="inp">
+            <label for="ch-type">Seizure type</label>
+            <select id="ch-type"></select>
+          </div>
+        </div>
+        <div>
+          <label style="font-family:var(--f-mono); font-size:.66rem; text-transform:uppercase; letter-spacing:.09em; color:var(--ink-3); display:block; margin-bottom:8px">Patient circumstances</label>
+          <div class="togs" id="ch-factors"></div>
+        </div>
+        <div class="out" id="ch-out"></div>
+      </div>
+    </section>
+
+    <section id="types" data-linkify>
+      <h2>By seizure type</h2>
+      <p class="lede">The full NICE NG217 ordering, updated January 2025.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Seizure type</th><th>First line</th><th>Second line</th><th>Adjunctive</th></tr></thead>
+          <tbody>
+            <tr><td class="drug">Focal</td>
+              <td>Lamotrigine or levetiracetam (monotherapy)</td>
+              <td>Carbamazepine, oxcarbazepine or zonisamide; then lacosamide</td>
+              <td>Carbamazepine, lacosamide, lamotrigine, levetiracetam, oxcarbazepine, topiramate, zonisamide</td></tr>
+            <tr><td class="drug">Generalised tonic-clonic</td>
+              <td>Lamotrigine, levetiracetam or sodium valproate</td>
+              <td>&mdash;</td>
+              <td>First line add-on: clobazam, lamotrigine, levetiracetam, perampanel, sodium valproate, topiramate. Second line add-on: brivaracetam, lacosamide, phenobarbital, primidone, zonisamide</td></tr>
+            <tr><td class="drug">Absence</td>
+              <td>Ethosuximide</td>
+              <td>Lamotrigine, levetiracetam or sodium valproate</td>
+              <td>A combination of two of the first-line or second-line agents</td></tr>
+            <tr><td class="drug">Myoclonic</td>
+              <td>Levetiracetam or sodium valproate</td>
+              <td>Brivaracetam, clobazam, clonazepam, lamotrigine, phenobarbital, piracetam, topiramate, zonisamide</td>
+              <td>As second line</td></tr>
+            <tr><td class="drug">Tonic or atonic</td>
+              <td>Lamotrigine or sodium valproate</td>
+              <td>Clobazam, rufinamide or topiramate</td>
+              <td>As second line</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="syndromes" data-linkify>
+      <h2>By syndrome</h2>
+      <p class="lede">Childhood-onset syndromes where the syndrome, not the seizure type, drives the choice.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Syndrome</th><th>First line</th><th>Next steps</th></tr></thead>
+          <tbody>
+            <tr><td class="drug">Infantile epileptic spasms</td>
+              <td>High-dose oral prednisolone with vigabatrin, or vigabatrin alone; vigabatrin alone is preferred where tuberous sclerosis is the cause</td>
+              <td>Ketogenic diet, levetiracetam, nitrazepam, sodium valproate or topiramate. Combination hormonal plus vigabatrin therapy stopped spasms in 72% of infants between days 14 and 42 in the ICISS trial, against 57% with hormonal therapy alone</td></tr>
+            <tr><td class="drug">Dravet syndrome</td>
+              <td>Sodium valproate; if unsuccessful, add stiripentol with clobazam</td>
+              <td>Cannabidiol with clobazam from 2 years, fenfluramine, ketogenic diet, levetiracetam or topiramate. <span class="flag">Avoid sodium-channel blockers entirely</span></td></tr>
+            <tr><td class="drug">Lennox-Gastaut syndrome</td>
+              <td>Sodium valproate</td>
+              <td>Lamotrigine; then cannabidiol with clobazam, clobazam, rufinamide or topiramate. Fenfluramine and felbamate are further options</td></tr>
+            <tr><td class="drug">Self-limited epilepsy with centrotemporal spikes</td>
+              <td>Lamotrigine or levetiracetam, if treatment is needed at all</td>
+              <td>Carbamazepine, oxcarbazepine or zonisamide; then sulthiame</td></tr>
+            <tr><td class="drug">Epilepsy with myoclonic-atonic seizures (Doose)</td>
+              <td>Levetiracetam or sodium valproate</td>
+              <td>Ketogenic diet; then clobazam, ethosuximide, topiramate or zonisamide</td></tr>
+            <tr><td class="drug">Neonatal seizures</td>
+              <td>Phenobarbital, whatever the aetiology</td>
+              <td>Phenytoin, levetiracetam, midazolam or lidocaine second line; levetiracetam may be preferred where there is cardiac disease. If a channelopathy is suspected, phenytoin or carbamazepine first (ILAE 2023)</td></tr>
+            <tr><td class="drug">Tuberous sclerosis complex</td>
+              <td>Vigabatrin for spasms; standard agents by seizure type otherwise</td>
+              <td>Everolimus for treatment-refractory focal seizures; cannabidiol titrated to 25 mg/kg/day</td></tr>
+            <tr><td class="drug">CDKL5 deficiency disorder</td>
+              <td>Standard agents by seizure type</td>
+              <td>Ganaxolone is licensed specifically for seizures in this disorder from 2 years</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="aggravate" data-linkify>
+      <p class="eyebrow">Negative selection</p>
+      <h2>Drugs that worsen seizures</h2>
+      <p class="lede">Seizure aggravation is a prescribing error that looks like treatment failure. When seizures increase after a new drug is started or a dose raised, suspect the drug before escalating it further.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Clinical setting</th><th>Avoid or use with caution</th><th>What happens</th></tr></thead>
+          <tbody>
+            <tr><td class="drug">Idiopathic generalised epilepsy with absence or myoclonic seizures</td>
+              <td>Carbamazepine, oxcarbazepine, eslicarbazepine, phenytoin, gabapentin, pregabalin, tiagabine, vigabatrin</td>
+              <td>Increased absence and myoclonic seizures; absence or myoclonic status epilepticus has been precipitated</td></tr>
+            <tr><td class="drug">Juvenile myoclonic epilepsy</td>
+              <td>Lamotrigine, in a minority</td>
+              <td>Myoclonus may worsen even while tonic-clonic seizures improve</td></tr>
+            <tr><td class="drug">Dravet syndrome (<span class="num">SCN1A</span> loss of function)</td>
+              <td>All sodium-channel blockers: carbamazepine, oxcarbazepine, phenytoin, lamotrigine</td>
+              <td>Blocking Na<sub>V</sub>1.1 in inhibitory interneurons deepens the underlying defect; seizures increase</td></tr>
+            <tr><td class="drug">Any epilepsy, GABAergic agents</td>
+              <td>Tiagabine, vigabatrin</td>
+              <td>Non-convulsive status epilepticus, including in people without epilepsy taking tiagabine off-label</td></tr>
+            <tr><td class="drug">Lennox-Gastaut and Dravet on cannabidiol</td>
+              <td>Cannabidiol without concomitant clobazam</td>
+              <td>Seizure worsening was more common in trial participants not taking clobazam, possibly reflecting cannabidiol's own sodium-channel blockade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="trials">
+      <h2>What the trials showed</h2>
+      <p class="lede">Three results that shaped the ordering above.</p>
+      <div class="cards">
+        <div class="card"><span class="k">SANAD II, 2021</span><h3>Focal epilepsy</h3>
+          <p>Lamotrigine gave a shorter time to 12-month remission than levetiracetam or zonisamide in newly diagnosed focal epilepsy. The findings did not support levetiracetam or zonisamide as first-line choices.</p></div>
+        <div class="card"><span class="k">SANAD II, 2021</span><h3>Generalised epilepsy</h3>
+          <p>Valproate was more effective than levetiracetam in generalised and unclassifiable epilepsy. The clinical problem is that valproate is precisely the drug now restricted in anyone who might conceive.</p></div>
+        <div class="card"><span class="k">Glauser, NEJM 2010</span><h3>Childhood absence</h3>
+          <p>Freedom from treatment failure at 12 months was 58% with valproate, 53% with ethosuximide and 29% with lamotrigine. Ethosuximide produced less attentional impairment than valproate, which is why it leads.</p></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>initPage("choose");</script>
+</body>
+</html>
